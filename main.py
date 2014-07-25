@@ -4,6 +4,24 @@ import urlparse
 import sys
 sys.path.insert(0,'libs')
 from bs4 import BeautifulSoup as bsp
+import os
+import jinja2
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
+                               autoescape = True)
+
+def render_str(template, **params):
+    t = jinja_env.get_template(template)
+    return t.render(params)
+
+class BaseHandler(webapp2.RequestHandler):
+    def render(self, template, **kw):
+        self.response.out.write(render_str(template, **kw))
+
+    def write(self, *a, **kw):
+        self.response.out.write(*a, **kw)
+
+
 
 question = {}
 def Quora(self,r_url):
@@ -51,5 +69,5 @@ class MainHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/url', MainHandler)
+    ('/', MainHandler)
 ], debug=True)
