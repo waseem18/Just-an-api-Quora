@@ -1,7 +1,7 @@
 Just an API
 =========
 
-Unofficial Quora API to extract answers of a question and the answers answers by a user.
+Unofficial API to extract answers of a question and the answers answers by a user.
 
 
 
