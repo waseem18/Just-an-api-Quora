@@ -58,7 +58,7 @@ def Quora(self,r_url):
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         url = self.request.url
-        p = urlparse.urlparse('http://q.goel.im/url=http://www.quora.com/Computer-Science/What-important-topics-of-number-theory-should-every-programmer-know?share=1')
+        p = urlparse.urlparse('http://www.quora.com/Computer-Science/What-important-topics-of-number-theory-should-every-programmer-know?share=1')
         path = p.path
         tuple_ = path.partition('=')
         result_url = tuple_[2]+'?share=1'
