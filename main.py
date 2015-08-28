@@ -1,4 +1,4 @@
-#Changes need to be made!
+#Changes need to be made!!
 import webapp2
 import urllib2
 import urlparse
@@ -51,7 +51,7 @@ def Quora(self,r_url):
     for i in range(count):
         if answers[i].find('div',class_='answer_content'):
             self.response.write(answers[i].find('div',class_='answer_content').text)
-            self.response.write('-----------------------------------------------------------------')
+            self.response.write('----------------------------------------------------------------------')
     
     
 
